@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
-import { Container } from '@/components/bootstrap';
+import { Container, SSRProvider } from '@/components/bootstrap';
+import NavBar from './NavBar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,8 +20,12 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <div>This is shared between all pages</div>
-        <Container>{children}</Container>
+        <NavBar /> {/* This is shared between all pages */}
+        <SSRProvider>
+          <main>
+            <Container className='py-4'>{children}</Container>
+          </main>
+        </SSRProvider>
       </body>
     </html>
   );

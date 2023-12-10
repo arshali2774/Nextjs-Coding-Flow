@@ -23,3 +23,10 @@
     - `not-found.tsx`, the name is important in all these files and should be written as it is.
     - `error.tsx`
     - `loading.tsx`
+
+## Hooks
+
+- Next.js has divided navigation hooks into 3 different parts:
+  - `useRouter` to programmatically change routes.
+  - `usePathname` to get the current path.
+  - `useSearchParams` to get the search params info.
